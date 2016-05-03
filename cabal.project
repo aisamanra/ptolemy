@@ -1,4 +1,5 @@
-projects: ptolemy-core/ptolemy-core.cabal,
+packages: ptolemy-core/ptolemy-core.cabal,
           ptolemy-reader-markdown/ptolemy-reader-markdown.cabal,
           ptolemy-writer-html/ptolemy-writer-html.cabal,
+          ptolemy-bridge/ptolemy-bridge.cabal
           ptolemy/ptolemy.cabal
