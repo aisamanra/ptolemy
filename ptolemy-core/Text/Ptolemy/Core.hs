@@ -1,8 +1,22 @@
 module Text.Ptolemy.Core where
 
 import           Data.Text (Text)
+import           Data.Map.Strict (Map)
 import           Data.Vector (Vector)
-import qualified Data.Vector as V
+
+type Reader = Text -> Either String Ptolemy
+type Writer = Ptolemy -> Text
+
+data Ptolemy = Ptolemy
+  { meta     :: Maybe Meta
+  , document :: Document
+  } deriving (Eq, Show, Read, Ord)
+
+data Meta = Meta { fromMeta :: Map Text MetaValue }
+  deriving (Eq, Show, Read, Ord)
+
+data MetaValue = MetaValue
+  deriving (Eq, Show, Read, Ord)
 
 type Document = Vector Block
 type DocumentList = Vector Document

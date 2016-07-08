@@ -9,7 +9,7 @@ maintainer:       gettyritter@gmail.com
 copyright:        ©2016 Getty Ritter
 category: Text
 build-type:       Simple
-cabal-version:    >= 1.2
+cabal-version:    >= 1.12
 
 library
   exposed-modules:     Text.Ptolemy.Pandoc
