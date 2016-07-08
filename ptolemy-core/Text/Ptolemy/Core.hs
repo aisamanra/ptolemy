@@ -1,13 +1,18 @@
 module Text.Ptolemy.Core where
 
 import           Data.Text (Text)
-import qualified Data.Text as T
 import           Data.Vector (Vector)
 import qualified Data.Vector as V
 
 type Document = Vector Block
 type DocumentList = Vector Document
 type Chunk = Vector Inline
+
+newtype PtolemyError = PtolemyError { ptolemyErrorMessage :: String }
+  deriving (Eq, Show)
+
+vec :: [a] -> Vector a
+vec = V.fromList
 
 data Block
   = Plain Chunk
@@ -17,13 +22,18 @@ data Block
   | BlockQuote Document
   | OrderedList ListAttributes DocumentList
   | BulletList DocumentList
-  | DefinitionList (Vector (Chunk, DocumentList))
+  | DefinitionList (Vector Definition)
   | Header Int Attr Chunk
   | HorizontalRule
 --  | Table ???
   | Div Attr Document
   | Null
     deriving (Eq, Show, Read, Ord)
+
+data Definition = Definition
+  { dfTerm       :: Chunk
+  , dfDefinition :: DocumentList
+  } deriving (Eq, Show, Read, Ord)
 
 data Inline
   = Str Text
@@ -52,6 +62,13 @@ data Attr = Attr
   , attrClasses :: Vector Text
   , attrProps :: Vector (Text, Text)
   } deriving (Eq, Show, Read, Ord)
+
+emptyAttr :: Attr
+emptyAttr = Attr
+  { attrIdentifier = ""
+  , attrClasses    = vec []
+  , attrProps      = vec []
+  }
 
 data ListAttributes = ListAttributes
   { laWhatever    :: Int -- XXX What is this field for?
