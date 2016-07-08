@@ -1,5 +1,6 @@
 packages: ptolemy-core/ptolemy-core.cabal,
           ptolemy-reader-markdown/ptolemy-reader-markdown.cabal,
+          ptolemy-reader-slackdown/ptolemy-reader-slackdown.cabal,
           ptolemy-writer-html/ptolemy-writer-html.cabal,
           ptolemy-bridge/ptolemy-bridge.cabal
           ptolemy/ptolemy.cabal
