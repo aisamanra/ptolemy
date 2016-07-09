@@ -2,7 +2,7 @@ module Text.Ptolemy.Core where
 
 import           Data.Text (Text)
 import           Data.Map.Strict (Map)
-import           Data.Vector (Vector)
+import           Data.Vector (Vector, fromList)
 
 type Reader = Text -> Either String Ptolemy
 type Writer = Ptolemy -> Text
@@ -26,7 +26,7 @@ newtype PtolemyError = PtolemyError { ptolemyErrorMessage :: String }
   deriving (Eq, Show)
 
 vec :: [a] -> Vector a
-vec = V.fromList
+vec = fromList
 
 data Block
   = Plain Chunk
