@@ -8,7 +8,7 @@ constructs:
 - `*asterisks*` for *bold text*
 - `_underscores_` for _emphasized text_
 - `~tildes~` for ~strikethrough text~
-- `backticks` for `inline code`
+- `` `backticks` `` for `inline code`
 
 It also understands two block-level constructs, but these
 can be turned off using the `SlackdownOpts` value passed to
